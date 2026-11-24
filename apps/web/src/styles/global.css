@@ -1,0 +1,49 @@
+@import 'tailwindcss';
+@import './tokens.css';
+@import './build.css';
+@import '@fontsource-variable/space-grotesk/index.css';
+@import '@fontsource-variable/jetbrains-mono/index.css';
+
+@layer base {
+  html {
+    color-scheme: dark;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-display);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* In-page links and scrollIntoView stop below the sticky navbar (and the ruler from md). */
+  html {
+    scroll-padding-top: var(--spacing-nav);
+  }
+
+  @media (min-width: 48rem) {
+    html {
+      scroll-padding-top: calc(var(--spacing-nav) + var(--spacing-ruler));
+    }
+  }
+
+  /* Crew cursor labels near the right edge must not create horizontal scroll. */
+  body {
+    overflow-x: clip;
+  }
+
+  h1,
+  h2,
+  h3 {
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-blue-light);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background-color: var(--color-blue-dark);
+    color: var(--color-white);
+  }
+}

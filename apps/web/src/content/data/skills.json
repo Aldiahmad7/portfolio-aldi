@@ -1,0 +1,62 @@
+[
+  {
+    "dummy": ["name"],
+    "name": "React",
+    "group": "frontend"
+  },
+  {
+    "dummy": ["name"],
+    "name": "TypeScript",
+    "group": "frontend"
+  },
+  {
+    "dummy": ["name"],
+    "name": "Tailwind CSS",
+    "group": "frontend"
+  },
+  {
+    "dummy": ["name"],
+    "name": "Node.js",
+    "group": "backend"
+  },
+  {
+    "dummy": ["name"],
+    "name": "Hono",
+    "group": "backend"
+  },
+  {
+    "dummy": ["name"],
+    "name": "Python / FastAPI",
+    "group": "backend"
+  },
+  {
+    "dummy": ["name"],
+    "name": "PostgreSQL",
+    "group": "database"
+  },
+  {
+    "dummy": ["name"],
+    "name": "SQLite / D1",
+    "group": "database"
+  },
+  {
+    "dummy": ["name"],
+    "name": "Redis",
+    "group": "database"
+  },
+  {
+    "dummy": ["name"],
+    "name": "LLM APIs",
+    "group": "ai"
+  },
+  {
+    "dummy": ["name"],
+    "name": "RAG & Embeddings",
+    "group": "ai"
+  },
+  {
+    "dummy": ["name"],
+    "name": "Evals",
+    "group": "ai"
+  }
+]

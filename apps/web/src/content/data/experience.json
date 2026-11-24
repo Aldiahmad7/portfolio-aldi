@@ -1,0 +1,34 @@
+[
+  {
+    "dummy": ["company", "title", "start", "summary"],
+    "company": "Nusantara AI Labs",
+    "title": "AI Engineer",
+    "start": "2024-03",
+    "end": "present",
+    "summary": "Built RAG assistants over internal docs that cut support lookups by 40%. Own the eval suite and LLM cost dashboards."
+  },
+  {
+    "dummy": ["company", "title", "start", "end", "summary"],
+    "company": "Kopi Digital",
+    "title": "Fullstack Developer",
+    "start": "2022-06",
+    "end": "2024-02",
+    "summary": "Shipped a multi-tenant ordering platform with React, Node.js and PostgreSQL serving 300+ cafes."
+  },
+  {
+    "dummy": ["company", "title", "start", "end", "summary"],
+    "company": "Freelance",
+    "title": "Web Developer",
+    "start": "2021-01",
+    "end": "2022-05",
+    "summary": "Delivered 15+ websites and dashboards for small businesses, from design handoff to deployment."
+  },
+  {
+    "dummy": ["company", "title", "start", "end", "summary"],
+    "company": "Lumbung Startup",
+    "title": "Software Engineering Intern",
+    "start": "2020-07",
+    "end": "2020-12",
+    "summary": "Built internal admin tools and wrote my first production API tests."
+  }
+]

@@ -1,0 +1,9 @@
+pnpm-lock.yaml
+dist/
+dist-ssr/
+playwright-report/
+test-results/
+docs/
+*.md
+apps/api/worker-configuration.d.ts
+apps/api/migrations/meta/

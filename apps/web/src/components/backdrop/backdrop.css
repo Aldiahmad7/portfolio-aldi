@@ -1,0 +1,36 @@
+.backdrop-dots {
+  background-image: radial-gradient(var(--color-dot) 1px, transparent 1px);
+  background-size: var(--dot-gap) var(--dot-gap);
+}
+
+/* Static noise: a tiny feTurbulence tile, never animated. */
+.backdrop-noise {
+  opacity: var(--noise-opacity);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='128' height='128'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.ruler-x {
+  background-image: repeating-linear-gradient(
+    to right,
+    var(--color-border) 0 1px,
+    transparent 1px var(--ruler-tick)
+  );
+  background-size: 100% 30%;
+  background-position: bottom;
+  background-repeat: repeat-x;
+}
+
+.ruler-y {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    var(--color-border) 0 1px,
+    transparent 1px var(--ruler-tick)
+  );
+  background-size: 30% 100%;
+  background-position: right;
+  background-repeat: repeat-y;
+}
+
+.ruler-label {
+  font-size: var(--ruler-label-size);
+}

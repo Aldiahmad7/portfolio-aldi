@@ -1,0 +1,20 @@
+[
+  {
+    "dummy": ["url"],
+    "platform": "github",
+    "label": "GitHub",
+    "url": "https://example.com/github"
+  },
+  {
+    "dummy": ["url"],
+    "platform": "linkedin",
+    "label": "LinkedIn",
+    "url": "https://example.com/linkedin"
+  },
+  {
+    "dummy": ["url"],
+    "platform": "email",
+    "label": "Email",
+    "url": "mailto:hello@example.com"
+  }
+]

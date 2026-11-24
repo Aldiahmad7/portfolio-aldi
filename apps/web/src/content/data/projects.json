@@ -1,0 +1,133 @@
+[
+  {
+    "dummy": ["title", "summary", "description", "tags", "thumbnail", "links", "year"],
+    "slug": "documind",
+    "title": "DocuMind",
+    "summary": "RAG chatbot that answers questions from 10k+ internal documents with citations.",
+    "description": [
+      "DocuMind indexes PDFs, Notion pages and support tickets into a vector store and answers employee questions with linked sources.",
+      "I designed the chunking and hybrid retrieval pipeline, built the streaming chat UI, and set up an eval suite that runs on every prompt change."
+    ],
+    "tags": ["RAG", "TypeScript", "pgvector", "Hono"],
+    "thumbnail": {
+      "src": "/dummy/project-1.svg",
+      "alt": "DocuMind chat interface",
+      "width": 1200,
+      "height": 750
+    },
+    "links": {
+      "demo": "https://example.com",
+      "repo": "https://example.com"
+    },
+    "featured": true,
+    "year": 2025
+  },
+  {
+    "dummy": ["title", "summary", "description", "tags", "thumbnail", "links", "year"],
+    "slug": "shiplog",
+    "title": "Shiplog",
+    "summary": "Changelog and feedback board for SaaS teams, with email digests.",
+    "description": [
+      "A fullstack app where product teams publish release notes and collect upvoted feature requests.",
+      "Built with React, Node.js and PostgreSQL; handles multi-tenant auth and billing."
+    ],
+    "tags": ["React", "Node.js", "PostgreSQL"],
+    "thumbnail": {
+      "src": "/dummy/project-2.svg",
+      "alt": "Shiplog dashboard",
+      "width": 1200,
+      "height": 750
+    },
+    "links": {
+      "demo": "https://example.com"
+    },
+    "featured": false,
+    "year": 2024
+  },
+  {
+    "dummy": ["title", "summary", "description", "tags", "thumbnail", "links", "year"],
+    "slug": "pairbot",
+    "title": "Pairbot",
+    "summary": "GitHub app that reviews pull requests and suggests focused fixes.",
+    "description": [
+      "Pairbot reads the diff, related files and CI logs, then leaves inline review comments.",
+      "Tuned prompts with an offline eval set of 300 real review threads."
+    ],
+    "tags": ["LLM", "GitHub API", "Python"],
+    "thumbnail": {
+      "src": "/dummy/project-3.svg",
+      "alt": "Pairbot review comment",
+      "width": 1200,
+      "height": 750
+    },
+    "links": {
+      "repo": "https://example.com"
+    },
+    "featured": false,
+    "year": 2025
+  },
+  {
+    "dummy": ["title", "summary", "description", "tags", "thumbnail", "year"],
+    "slug": "flowline",
+    "title": "Flowline",
+    "summary": "Automation pipeline that turns invoices into clean spreadsheet rows.",
+    "description": [
+      "Combines OCR with an LLM extraction step and human review for low-confidence fields.",
+      "Processes around 2,000 documents a month for a logistics client."
+    ],
+    "tags": ["Python", "OCR", "Queues"],
+    "thumbnail": {
+      "src": "/dummy/project-4.svg",
+      "alt": "Flowline pipeline diagram",
+      "width": 1200,
+      "height": 750
+    },
+    "links": {},
+    "featured": false,
+    "year": 2024
+  },
+  {
+    "dummy": ["title", "summary", "description", "tags", "thumbnail", "links", "year"],
+    "slug": "edge-rate-limit",
+    "title": "edge-rate-limit",
+    "summary": "Open source rate limiting toolkit for edge runtimes.",
+    "description": [
+      "A tiny TypeScript library with sliding-window and token-bucket strategies.",
+      "Used in a handful of production Workers; 400+ stars on GitHub."
+    ],
+    "tags": ["Open Source", "TypeScript", "Edge"],
+    "thumbnail": {
+      "src": "/dummy/project-5.svg",
+      "alt": "edge-rate-limit code sample",
+      "width": 1200,
+      "height": 750
+    },
+    "links": {
+      "repo": "https://example.com"
+    },
+    "featured": false,
+    "year": 2023
+  },
+  {
+    "dummy": ["title", "summary", "description", "tags", "thumbnail", "links", "year"],
+    "slug": "kopi-counter",
+    "title": "Kopi Counter",
+    "summary": "Telegram bot that tracks how much coffee my team drinks. For science.",
+    "description": [
+      "Log a cup with one tap; a weekly leaderboard crowns the most caffeinated developer.",
+      "A weekend project that ended up being used by three offices."
+    ],
+    "tags": ["Side project", "Bot", "SQLite"],
+    "thumbnail": {
+      "src": "/dummy/project-6.svg",
+      "alt": "Kopi Counter leaderboard",
+      "width": 1200,
+      "height": 750
+    },
+    "links": {
+      "repo": "https://example.com"
+    },
+    "featured": false,
+    "year": 2023
+  }
+]

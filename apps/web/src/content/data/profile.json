@@ -1,0 +1,21 @@
+{
+  "dummy": ["tagline", "location", "availability", "bio", "avatar", "email", "resumeUrl"],
+  "name": "Aldi Ahmad Dani",
+  "role": "Fullstack Developer & AI Engineer",
+  "tagline": "I build fast web apps and practical AI tools that people actually use.",
+  "location": "Jember, Indonesia",
+  "availability": "Open to freelance & full-time roles",
+  "bio": [
+    "I started out building websites for local shops and never stopped. Today I work across the whole stack: React on the front, TypeScript and Python services on the back, and Postgres underneath.",
+    "For the last two years most of my work has involved LLMs: retrieval-augmented chatbots, coding assistants, and automation pipelines that turn messy documents into clean data.",
+    "I care about the boring parts too: evals, observability, and keeping cloud bills small. Outside of work I tinker with side projects that are mostly excuses to try new tools."
+  ],
+  "avatar": {
+    "src": "/dummy/avatar.svg",
+    "alt": "Abstract blue gradient avatar",
+    "width": 400,
+    "height": 400
+  },
+  "email": "hello@example.com",
+  "resumeUrl": "https://example.com/resume.pdf"
+}

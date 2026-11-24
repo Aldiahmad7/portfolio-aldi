@@ -1,0 +1,9 @@
+packages:
+  - apps/*
+  - packages/*
+
+# esbuild (via tsx, wrangler) and workerd (local Workers runtime used by wrangler dev) need their
+# postinstall to fetch the platform binary.
+allowBuilds:
+  esbuild: true
+  workerd: true

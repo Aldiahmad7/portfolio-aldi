@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      // Runs before first paint: marks the page for the build animation unless the visitor prefers
+      // reduced motion or skipped it earlier in this visit. Keys match src/build/config.ts.
+      try {
+        if (
+          !matchMedia('(prefers-reduced-motion: reduce)').matches &&
+          !sessionStorage.getItem('cursor-crew:skipped')
+        ) {
+          document.documentElement.dataset.buildRoot = 'pending'
+        }
+      } catch {
+        // Storage blocked: show the content without the animation.
+      }
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#05060a" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <!--app-head-->
+  </head>
+  <body>
+    <div id="root"><!--app-html--></div>
+    <script type="module" src="/src/app/main.tsx"></script>
+  </body>
+</html>

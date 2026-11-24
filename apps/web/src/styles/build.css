@@ -1,0 +1,255 @@
+/*
+ * Build engine styles. Content is hidden only with opacity (layout and accessibility tree stay intact)
+ * and only while the boot script in index.html has set <html data-build-root="pending">.
+ */
+
+@keyframes build-failsafe {
+  to {
+    opacity: 1;
+  }
+}
+
+/*
+ * Applied to the cursor's children: on the cursor itself `rotate` would act after the inline
+ * translate that positions it and swing it around the page origin.
+ */
+@keyframes build-cursor-dance {
+  25% {
+    rotate: -14deg;
+  }
+
+  75% {
+    rotate: 14deg;
+  }
+}
+
+@keyframes build-caret-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+[data-build-root='pending'] [data-build-section] [data-build] {
+  transition: opacity var(--duration-fast) var(--ease-standard);
+}
+
+[data-build-root='pending'] [data-build-section] [data-build]:not([data-built]) {
+  opacity: 0;
+}
+
+/* If JS never takes over (failed to load, crashed), the content shows itself. */
+[data-build-root='pending']
+  [data-build-section]:not([data-build-claimed])
+  [data-build]:not([data-built]) {
+  animation: build-failsafe 0s var(--build-failsafe-delay) forwards;
+}
+
+:root:not([data-build-root='pending']) .build-skip-link {
+  display: none;
+}
+
+/* Decoration layer in document coordinates; see build/overlay.ts. */
+.build-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 40;
+  width: 100%;
+  height: 0;
+  pointer-events: none;
+  contain: layout style;
+}
+
+.build-cursor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity var(--duration-fast) var(--ease-standard);
+}
+
+.build-cursor[data-visible] {
+  opacity: 1;
+}
+
+/* Finite on purpose (COMMANDS.danceMs = 4 steps); the attribute is removed afterwards anyway. */
+.build-cursor[data-dancing] > * {
+  transform-origin: 0 0;
+  animation: build-cursor-dance var(--dance-step) var(--ease-standard) 4;
+}
+
+/* The only part of the layer that takes pointer events: grab the cursor by its arrow. */
+.build-cursor-hitbox {
+  position: absolute;
+  top: calc((var(--cursor-size) - var(--cursor-hitbox-size)) / 2);
+  left: calc((var(--cursor-size) - var(--cursor-hitbox-size)) / 2);
+  width: var(--cursor-hitbox-size);
+  height: var(--cursor-hitbox-size);
+  cursor: grab;
+  pointer-events: auto;
+  touch-action: none;
+}
+
+.build-cursor[data-held] .build-cursor-hitbox {
+  cursor: grabbing;
+}
+
+.build-cursor-arrow {
+  width: var(--cursor-size);
+  height: var(--cursor-size);
+  fill: var(--crew-color);
+  stroke: var(--color-bg);
+  stroke-width: 1;
+}
+
+/* Carried beside the arrow while the cursor delivers the contact message (crew-control deliver). */
+.build-cursor-envelope {
+  position: absolute;
+  top: 0;
+  left: var(--cursor-size);
+  display: none;
+  width: var(--cursor-size);
+  fill: var(--color-surface);
+  stroke: var(--crew-color);
+  stroke-width: 1;
+}
+
+.build-cursor[data-carrying] .build-cursor-envelope {
+  display: block;
+}
+
+.build-cursor-label {
+  position: absolute;
+  top: var(--cursor-size);
+  left: var(--cursor-size);
+  padding: calc(var(--spacing) * 0.5) calc(var(--spacing) * 2);
+  border-radius: var(--radius-pill);
+  background-color: var(--crew-color);
+  color: var(--color-bg);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.build-cursor[data-label-text='light'] .build-cursor-label {
+  color: var(--color-white);
+}
+
+.build-clone {
+  position: absolute;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.build-clone[data-pasted] {
+  outline: 1px dashed var(--color-blue);
+  outline-offset: 2px;
+}
+
+.build-caret {
+  display: inline-block;
+  width: var(--caret-width);
+  height: 1em;
+  margin-left: 1px;
+  vertical-align: text-bottom;
+  background-color: currentColor;
+  animation: build-caret-blink 1s steps(1) infinite;
+}
+
+.build-rect {
+  position: absolute;
+  box-sizing: border-box;
+  border: 1px dashed var(--color-blue);
+}
+
+.build-select {
+  position: absolute;
+  box-sizing: border-box;
+  border: 1px dashed var(--color-blue);
+}
+
+.build-select-handle {
+  position: absolute;
+  width: var(--select-handle-size);
+  height: var(--select-handle-size);
+  border: 1px solid var(--color-blue);
+  background-color: var(--color-bg);
+  translate: -50% -50%;
+}
+
+.build-select-handle[data-corner$='left'] {
+  left: 0;
+}
+
+.build-select-handle[data-corner$='right'] {
+  left: 100%;
+}
+
+.build-select-handle[data-corner^='top'] {
+  top: 0;
+}
+
+.build-select-handle[data-corner^='bottom'] {
+  top: 100%;
+}
+
+.build-fill {
+  position: absolute;
+  background-color: color-mix(
+    in srgb,
+    var(--crew-color) calc(var(--fill-opacity) * 100%),
+    transparent
+  );
+}
+
+/* Speech bubble, a child of the cursor so it travels with it. */
+.build-bubble {
+  position: absolute;
+  bottom: 100%;
+  left: var(--cursor-size);
+  width: max-content;
+  max-width: var(--bubble-max-width);
+  padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 2.5);
+  border: 1px solid var(--crew-color);
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  font-size: var(--text-sm);
+  line-height: 1.4;
+  opacity: 0;
+  transition: opacity var(--duration-fast) var(--ease-standard);
+}
+
+.build-bubble[data-visible] {
+  opacity: 1;
+}
+
+/* The visitor's label; fixed, so it follows the pointer in viewport coordinates. */
+.you-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 45;
+  padding: calc(var(--spacing) * 0.5) calc(var(--spacing) * 2);
+  border-radius: var(--radius-pill);
+  background-color: var(--color-text);
+  color: var(--color-bg);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  line-height: 1.4;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-fast) var(--ease-standard);
+}
+
+.you-cursor[data-visible] {
+  opacity: 1;
+}
+
+/* Comment mode (docs/interactions.md §7): commentable sections are outlined; the system cursor stays. */
+[data-comment-mode] main section[id] {
+  outline: 1px dashed var(--color-blue-dark);
+  outline-offset: -1px;
+  cursor: crosshair;
+}
